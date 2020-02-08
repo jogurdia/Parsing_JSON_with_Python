@@ -41,6 +41,8 @@ while True:
         print("For your directions the following information was found: ")
         print("The Total Distance is: " + str(json_response["route"]["distance"]))
         print("The total amount of fuel used would be: " +str(json_response["route"]["fuelUsed"]))
+        for turn in json_response["route"]["legs"][0]["maneuvers"]:
+            print((turn["narrative"]) + " (" + str(turn["distance"]) + " miles)")
         print("##############################################################")    
     print()
 
