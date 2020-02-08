@@ -22,10 +22,17 @@ url = base_api_url + urllib.parse.urlencode({"key":api_key, "from":start_locatio
 json_response = requests.get(url).json()
 
 print(json_response)
-
-# Print the URL
- 
 print(url)
+
+# Check status code of call to RESTful API...
+
+returned_status = json_response["info"]["statuscode"]
+mapquest_copyright = json_response["info"]["copyright"]["text"]
+print()
+if returned_status == 0:
+    print("The status of your API call was: " + str(returned_status))
+    print(mapquest_copyright)
+print()
 
 
 
